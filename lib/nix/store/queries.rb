@@ -4,11 +4,12 @@ module Nix
   module Store
     module Queries
       def deriver
-        # TODO(burke): unknown-deriver
-        to_entry(query('--deriver', @path))
+        out = query('--deriver', @path)
+        out == "unknown-deriver\n" ? nil : to_entry(out)
       end
 
       def outputs
+        return [] unless @path =~ /\.drv$/
         to_entries(query('--outputs', @path))
       end
 
