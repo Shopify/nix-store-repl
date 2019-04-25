@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+
+require('bundler/setup')
+require('nix/store')
+
+Nix::Store::REPL.start

@@ -1,6 +1,8 @@
+require('nix/store')
+
 module Nix
   module Store
-    module Repl
+    class REPL
       VERSION = "0.1.0"
     end
   end
